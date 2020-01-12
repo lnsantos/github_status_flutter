@@ -21,6 +21,9 @@ dependencies:
   flutter_mobx: ^0.3.6
   mobx: ^0.4.0+1
   flutter_modular: ^0.2.0
+  json_annotation: ^3.0.1
+  retrofit: ^1.0.1+1
+
   flutter:
     sdk: flutter
 
@@ -31,6 +34,9 @@ dev_dependencies:
   mockito: ^4.1.1
   mobx_codegen: ^0.4.0+1
   build_runner: ^1.7.3
+  json_serializable: ^3.2.5
+  retrofit_generator: ^1.0.1+1
+
   flutter_test:
     sdk: flutter
 
