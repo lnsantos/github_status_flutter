@@ -46,9 +46,13 @@ class HomePage extends StatelessWidget {
             style: _simpleTextStyle(),
             decoration: InputDecoration(
               labelText: "Name user of Github.com",
-              labelStyle: _textFieldStyle()
+              labelStyle: _textFieldStyle(),
             ),
-          )
+          ),
+          RaisedButton(
+              child: Text("SEARCH",style : _textFieldStyle()),
+              color: Colors.white,
+            ),
         ],
       ),
       ),
