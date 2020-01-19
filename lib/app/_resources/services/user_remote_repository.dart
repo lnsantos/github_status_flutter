@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:github_status/resources/models/response/user.dart';
+import 'package:github_status/app/_resources/models/response/user.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'user_remote_repository.g.dart';

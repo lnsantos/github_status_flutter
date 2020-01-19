@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:dio/native_imp.dart';
-import 'package:github_status/resources/static/consts.dart';
+import 'package:github_status/app/_resources/static/consts.dart';
 
 class GitHubDio extends DioForNative {
   GitHubDio() {
