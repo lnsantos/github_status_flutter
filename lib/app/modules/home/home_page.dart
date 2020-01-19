@@ -1,58 +1,96 @@
 import 'package:flutter/material.dart';
+import 'package:github_status/app/_resources/components/button.dart';
+import 'package:github_status/app/_resources/extensions/color.dart';
+import 'package:line_icons/line_icons.dart';
 
 import '../../app_controller.dart';
 import '../../app_module.dart';
 
 class HomePage extends StatelessWidget {
-  final String title;
-  HomePage({Key key, this.title = "GITHUB STATUS"}) : super(key: key);
+  HomePage({Key key}) : super(key: key);
 
   final AppController mainModule = AppModule.to.get();
-
-  TextStyle _titleStyle() {
-    return TextStyle(color: Colors.white, fontSize: 30.0);
-  }
-
-  TextStyle _simpleTextStyle() {
-    return TextStyle(color: Colors.white, fontSize: 20.0);
-  }
-
-  TextStyle _textFieldStyle() {
-    return TextStyle(
-        color: Colors.black, fontSize: 20.0, backgroundColor: Colors.white);
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                  child: Align(
-                      alignment: Alignment.topCenter,
-                      child: Text(title, style: _titleStyle())),
-                  padding: EdgeInsets.all(20.0)),
-              TextFormField(
-                autofocus: false,
-                keyboardType: TextInputType.text,
-                style: _simpleTextStyle(),
-                decoration: InputDecoration(
-                  labelText: "Name user of Github.com",
-                  labelStyle: _textFieldStyle(),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Expanded(
+              flex: 2,
+              child: Image.asset(
+                "assets/images/git_icon.png",
+              ),
+            ),
+            Expanded(
+              flex: 4,
+              child: Container(
+                width: MediaQuery.of(context).size.width * .8,
+                margin: EdgeInsets.all(16),
+                child: Form(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      TextFormField(
+                        decoration: InputDecoration(
+                            hintText: "Username",
+                            prefixIcon: Icon(LineIcons.user),
+                            border: OutlineInputBorder()),
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                          hintText: "Password",
+                          prefixIcon: Icon(LineIcons.user_secret),
+                          border: OutlineInputBorder(),
+                        ),
+                        obscureText: true,
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: CustomButton(
+                              backgroundColor: Color.fromRGBO(43, 49, 55, 1),
+                              child: Text(
+                                "Keep without account",
+                                style: TextStyle(
+                                    color: Color.fromRGBO(250, 251, 252, 1),
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 1),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 50,
+                          ),
+                          Expanded(
+                            child: CustomButton(
+                              child: Text(
+                                "Sign in",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 1,
+                                ),
+                              ),
+                              backgroundColor: Color.fromRGBO(45, 186, 78, 1),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
-              RaisedButton(
-                child: Text("SEARCH", style: _textFieldStyle()),
-                color: Colors.white,
-                onPressed: () {},
-              ),
-            ],
-          ),
+            ),
+            Expanded(
+              flex: 2,
+              child: SizedBox(),
+            )
+          ],
         ),
       ),
     );
